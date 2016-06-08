@@ -66,6 +66,7 @@ int main(void)
 	/* init counter */
 	count = 0;
 	timer1_ctc_init();
+	sei();			//Enable global interrupt
 /*
 	TCCR1B |= (1 << WGM12); //Configure timer 1 for CTC mode
 	TIMSK1 |= (1 << OCIE1A);	//Enable CTC interrupt
