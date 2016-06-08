@@ -15,15 +15,18 @@
 #include <avr/interrupt.h>
 #include <avr/version.h>
 
+#include "timer1_ctc.h"
+
 void print_about(void);
 
 void uart_init(void);
 void uart_putchar(char c, FILE *stream);
 char uart_getchar(FILE *stream);
 
+/*
 void timer1_ctc_init(void);
 void timer1_ctc_set(unsigned int foc1a);
-
+*/
 static FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 static FILE uart_input	= FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 
@@ -159,6 +162,7 @@ char uart_getchar(FILE *stream)
 	return UDR0;
 }
 
+/*
 void timer1_ctc_init(void)
 {
 
@@ -169,6 +173,7 @@ void timer1_ctc_init(void)
 
 void timer1_ctc_set(unsigned int foc1a)
 {
+*/
 /*
 	N = { 1, 8, 64, 256, 1024 }
 	f_clk = f_cpu
@@ -179,9 +184,11 @@ void timer1_ctc_set(unsigned int foc1a)
 
 	OCRnA = 16000000 / ( 2 * 64 * 1000 ) - 1 = 
 */
+/*
 	OCR1A = foc1a;// 15624;		//Count to
 	TCCR1B |= (BIT(CS10) | BIT(CS12)); //Start timer at Fcpu/64
 }
+*/
 
 ISR(TIMER1_COMPA_vect)
 {
