@@ -15,7 +15,7 @@ typedef enum {
 	CLK64,
 	CLK256,
 	CLK1024
-} timer1_prescale;
+} Timer1Prescale;
 
 void timer1_ctc_init(void);
 void timer1_ctc_set(unsigned int foc1a);
