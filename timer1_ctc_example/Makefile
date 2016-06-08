@@ -50,7 +50,7 @@ PROJECTNAME=timer1_ctc_example
 # (NOT .s !!!) for assembly source code files.
 # if there is files in a subdirectory, then
 # SD/SD_file.c
-PRJSRC=main.c
+PRJSRC=main.c timer1_ctc.c
 
 # Name of target controller 
 MCU=atmega328p
