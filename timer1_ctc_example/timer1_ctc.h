@@ -1,6 +1,7 @@
 #ifndef _TIMER1_CTC_H
 #define _TIMER1_CTC_H
 
+#include <avr/interrupt.h>
 #include <avr/io.h>
 #include <bits.h>
 
