@@ -18,6 +18,6 @@ typedef enum {
 } Timer1Prescale;
 
 void timer1_ctc_init(void);
-void timer1_ctc_set(unsigned int foc1a);
-
+void timer1_ctc_set_value(unsigned int foc1a);
+void timer1_ctc_set_prescale( Timer1Prescale pre);
 #endif
