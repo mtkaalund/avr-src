@@ -14,7 +14,9 @@ typedef enum {
 	CLK8,
 	CLK64,
 	CLK256,
-	CLK1024
+	CLK1024,
+	EXT_FALL,
+	EXT_RISE
 } Timer1Prescale;
 
 void timer1_ctc_init(void);
