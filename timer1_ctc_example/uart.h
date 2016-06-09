@@ -4,6 +4,7 @@
 #include <stdio.h>
 /* AVR-libc include */
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/setbaud.h>
 /* User-lib include */
 #include <bits.h>
