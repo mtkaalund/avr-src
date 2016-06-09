@@ -1,4 +1,4 @@
-#include <stdio.h>
+/* #include <stdio.h> */
 #include <avr/io.h>
 #include <util/delay.h>
 #include <bits.h>
@@ -10,26 +10,29 @@
 #define BAUD		9600
 
 #define VERSION		"0.0.1"
-
+/*
 #include <util/setbaud.h>
 #include <avr/interrupt.h>
+*/
 #include <avr/version.h>
 
+#include "uart.h"
 #include "timer1_ctc.h"
 
 void print_about(void);
-
+/*
 void uart_init(void);
 void uart_putchar(char c, FILE *stream);
 char uart_getchar(FILE *stream);
-
+*/
 /*
 void timer1_ctc_init(void);
 void timer1_ctc_set(unsigned int foc1a);
 */
+/*
 static FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 static FILE uart_input	= FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
-
+*/
 /* date struct */
 typedef struct {
 	char sec;
@@ -63,7 +66,8 @@ int main(void)
 	uart_init();
 	stdout	= &uart_output;
 	stdin	= &uart_input;
-	UCSR0B |= (1 << RXCIE0);
+	uart_rx_interrupt_enable();
+//	UCSR0B |= (1 << RXCIE0);
 	/* init counter */
 	count = 0;
 	timer1_ctc_init();
@@ -129,7 +133,7 @@ void print_about(void)
 	printf("TimerAVR version: %s\n", VERSION);
 	printf("build with AVR LIBC version: %s\n", __AVR_LIBC_VERSION_STRING__);
 }
-
+/*
 void uart_init(void)
 {
 	UBRR0H	=	UBRRH_VALUE;
@@ -161,7 +165,7 @@ char uart_getchar(FILE *stream)
 	loop_until_bit_is_set(UCSR0A, RXC0);
 	return UDR0;
 }
-
+*/
 /*
 void timer1_ctc_init(void)
 {
