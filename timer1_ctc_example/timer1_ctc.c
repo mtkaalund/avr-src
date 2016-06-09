@@ -7,7 +7,7 @@ void timer1_ctc_init(void)
 	TIMSK1 |= (1 << OCIE1A);	//Enable CTC interrupt
 }
 
-void timer1_ctc_set(unsigned int foc1a)
+void timer1_ctc_set_value(unsigned int foc1a)
 {
 /*
 	N = { 1, 8, 64, 256, 1024 }
@@ -24,7 +24,7 @@ void timer1_ctc_set(unsigned int foc1a)
 	sei();		//Enable interrupts
 }
 
-void timer1_ctc_set_prescale( pre)
+void timer1_ctc_set_prescale( Timer1Prescale pre)
 {
 	cli();		// Disable interrupts
 
