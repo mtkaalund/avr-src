@@ -15,6 +15,34 @@ void uart_init(void)
 	UCSR0B	=	BIT(RXEN0)  | BIT(TXEN0);
 }
 
+void uart_rx_interrupt_enable( void )
+{
+	cli();
+	bit_set(UCSR0B, BIT(RXCIE0));
+	sei();
+}
+
+void uart_rx_interrupt_disable( void )
+{
+	cli();
+	bit_clear(UCSR0B, BIT(RXCIE0));
+	sei();
+}
+
+void uart_tx_interrupt_enable( void )
+{
+	cli();
+	bit_set(UCSR0B, BIT(TXCIE0));
+	sei();
+}
+
+void uart_tx_interrupt_disable( void )
+{
+	cli();
+	bit_clear(UCSR0B, BIT(TXCIE0));
+	sei();
+}
+
 void uart_putchar(uint8_t c, FILE *stream)
 {
 	if(c == '\n')
