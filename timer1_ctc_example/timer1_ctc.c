@@ -7,20 +7,14 @@ void timer1_ctc_init(void)
 	TIMSK1 |= (1 << OCIE1A);	//Enable CTC interrupt
 }
 
-void timer1_ctc_set_value(unsigned int foc1a)
+void timer1_ctc_set_value( uint16_t ocr1a_value )
 {
 /*
-	N = { 1, 8, 64, 256, 1024 }
-	f_clk = f_cpu
-	Focna = f_clk / ( 2 * N * (1 + OCRnA ) )
-=>	(1 + OCRnA) * Focna = f_clk / ( 2 * N )
-=>	(1 + OCRnA) = f_clk / ( 2 * N * Focna )
-=>	OCRnA = f_clk / ( 2 * N * Focna ) - 1
-
 	OCRnA = 16000000 / ( 2 * 64 * 1000 ) - 1 = 
 */
+
 	cli();		//Disable interrupts
-	OCR1A = foc1a;// 15624;		//Count to
+	OCR1A = ocr1a_value;
 	sei();		//Enable interrupts
 }
 

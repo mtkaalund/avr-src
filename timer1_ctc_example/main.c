@@ -49,6 +49,7 @@ int main(void)
 	unsigned int values[] = {4545, 4290, 4049, 3822, 3607, 3405, 3214, 3033, 2863, 2702, 2551, 2407, 2272, 2145, 2024, 1911, 1803, 1702, 1607, 1516, 1431, 1351, 1275, 1203, 1136, 1072, 1012, 955, 901, 851, 803, 758, 715, 675, 637, 601, 568, 536, 506, 477, 450, 425, 401, 379, 357, 337, 318, 300, 284, 268, 253, 238, 225, 212, 200, 189, 178, 168, 159, 150, 142, 134, 126, 119, 112, 106, 100, 94, 89, 84, 79, 75, 71, 67, 63, 59, 56, 53, 50, 47, 44, 42, 39, 37, 35, 33, 31, 29 } ;
 	char value_size = 88;
 	char value_count = 0;
+	char pre_count = 0;
 
 	date.sec = 0;
 	date.min = 0;
@@ -75,10 +76,6 @@ int main(void)
 	timer1_ctc_set_prescale( scale );
 	timer1_ctc_set_value( 124 ); //15624 );
 	sei();			//Enable global interrupt
-/*
-	OCR1A = 15624;		//Count to
-	TCCR1B |= (BIT(CS10) | BIT(CS12)); //Start timer at Fcpu/64
-*/
 	/* Sets port b pin (LED_PIN) to output */
 	bit_set(DDRB, BIT(LED_PIN));
 	bit_clear(PORTB, BIT(LED_PIN));
