@@ -66,13 +66,15 @@ int main(void)
 	/* init counter */
 	count = 0;
 	timer1_ctc_init();
-	sei();			//Enable global interrupt
 /*
 	TCCR1B |= (1 << WGM12); //Configure timer 1 for CTC mode
 	TIMSK1 |= (1 << OCIE1A);	//Enable CTC interrupt
 	sei();			//Enable global interrupt
 */
-	timer1_ctc_set( 124 ); //15624 );
+	Timer1Prescale scale = CLK64;
+	timer1_ctc_set_prescale( scale );
+	timer1_ctc_set_value( 124 ); //15624 );
+	sei();			//Enable global interrupt
 /*
 	OCR1A = 15624;		//Count to
 	TCCR1B |= (BIT(CS10) | BIT(CS12)); //Start timer at Fcpu/64
@@ -105,7 +107,7 @@ int main(void)
 					value_count = 0;
 
 				printf("Setting timer1 to %d, count is %d\n", values[ value_count ], value_count);
-				timer1_ctc_set( values[ value_count ] ); //15624 );
+				timer1_ctc_set_value( values[ value_count ] ); //15624 );
 				break;
 
 			case 'v':
