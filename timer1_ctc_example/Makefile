@@ -50,7 +50,7 @@ PROJECTNAME=timer1_ctc_example
 # (NOT .s !!!) for assembly source code files.
 # if there is files in a subdirectory, then
 # SD/SD_file.c
-PRJSRC=main.c timer1_ctc.c
+PRJSRC=main.c timer1_ctc.c uart.c
 
 # Name of target controller 
 MCU=atmega328p
@@ -61,7 +61,7 @@ F_CPU=16000000
 # additional includes (e.g. -I/path/to/mydir)
 INC=-I/usr/lib/avr -I../include
 
-CDEFS= -DF_CPU=$(F_CPU)UL
+CDEFS= -DF_CPU=$(F_CPU)UL -DBAUD=9600
 # libraries to link in (e.g. -lmylib)
 LIBS=
 
