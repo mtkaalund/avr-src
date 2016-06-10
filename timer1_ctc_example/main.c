@@ -7,7 +7,7 @@
 #define LED_PIN 	 5
 
 /* defines the baud rate */
-#define BAUD		9600
+//#define BAUD		9600
 
 #define VERSION		"0.0.1"
 /*
@@ -102,7 +102,10 @@ int main(void)
 			case '\n':
 			case '\r':
 				break;
-			case 's':	
+/*			case 'b':
+				printf("Calculated baud %d\n", uart_calc_baud(9600));
+				break;
+*/			case 's':	
 				value_count++;
 				if( value_count >= value_size )
 					value_count = 0;
