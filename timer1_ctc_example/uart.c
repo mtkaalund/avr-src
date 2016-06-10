@@ -1,5 +1,16 @@
 #include "uart.h"
 
+/*
+uint16_t uart_calc_baud(uint16_t baud)
+{
+	uint16_t ubbrr0 = (( F_CPU / ( 16UL * baud) ) - 1);
+
+	
+
+	return ubbrr0;
+}
+*/
+
 void uart_init(void)
 {
 	UBRR0H	=	UBRRH_VALUE;
