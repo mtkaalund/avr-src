@@ -1,5 +1,7 @@
 #ifndef UART_H
 #define UART_H
+//#define BAUD 9600
+
 /* standard c include */
 #include <stdio.h>
 /* AVR-libc include */
