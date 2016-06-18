@@ -9,18 +9,19 @@
 #define VERSION		"0.0.2"
 #include <avr/version.h>
 
-#include <uart.h>
-#include "timer1_ctc.h"
+#include "uart.h"
 
 void print_about(void);
 void print_help(void);
 
-volatile rx_data = 0;
+volatile int8_t rx_data;
 
 int main(void)
 {
 	/* init */
 	uart_init();
+
+	uart_rx_interrupt_enable();
 
 	stdout	= &uart_output;
 	stdin	= &uart_input;
