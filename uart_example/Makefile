@@ -41,7 +41,7 @@
 ##### website for detailed instructions
 
 # Name of our project
-PROJECTNAME=timer1_ctc_example
+PROJECTNAME=uart_example
 
 # Source files
 # List C/C++/Assembly source files:
@@ -50,7 +50,7 @@ PROJECTNAME=timer1_ctc_example
 # (NOT .s !!!) for assembly source code files.
 # if there is files in a subdirectory, then
 # SD/SD_file.c
-PRJSRC=main.c timer1_ctc.c uart.c
+PRJSRC=main.c uart.c
 
 # Name of target controller 
 MCU=atmega328p
