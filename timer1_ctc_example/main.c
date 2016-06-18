@@ -16,7 +16,7 @@
 */
 #include <avr/version.h>
 
-#include "uart.h"
+#include <uart.h>
 #include "timer1_ctc.h"
 
 void print_about(void);
