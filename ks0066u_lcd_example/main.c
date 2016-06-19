@@ -128,32 +128,33 @@ uint8_t lcd_get_data( void )
 
 	lcd_enable();
 
-	if( PIN( LCD_LSB_PORT ) & BIT( LCD_LSB_0 ) != 0 ) bit_set(data, BIT(0));
-	if( PIN( LCD_LSB_PORT ) & BIT( LCD_LSB_1 ) != 0 ) bit_set(data, BIT(1));
-	if( PIN( LCD_LSB_PORT ) & BIT( LCD_LSB_2 ) != 0 ) bit_set(data, BIT(2));
-	if( PIN( LCD_LSB_PORT ) & BIT( LCD_LSB_3 ) != 0 ) bit_set(data, BIT(3));
+	if( (PIN(LCD_LSB_PORT) & BIT(LCD_LSB_0)) != 0 ) bit_set(data, BIT(0));
+	if( (PIN(LCD_LSB_PORT) & BIT(LCD_LSB_1)) != 0 ) bit_set(data, BIT(1));
+	if( (PIN(LCD_LSB_PORT) & BIT(LCD_LSB_2)) != 0 ) bit_set(data, BIT(2));
+	if( (PIN(LCD_LSB_PORT) & BIT(LCD_LSB_3)) != 0 ) bit_set(data, BIT(3));
 	
-	if( PIN( LCD_MSB_PORT ) & BIT( LCD_MSB_0 ) != 0 ) bit_set(data, BIT(4));
-	if( PIN( LCD_MSB_PORT ) & BIT( LCD_MSB_1 ) != 0 ) bit_set(data, BIT(5));
-	if( PIN( LCD_MSB_PORT ) & BIT( LCD_MSB_2 ) != 0 ) bit_set(data, BIT(6));
-	if( PIN( LCD_MSB_PORT ) & BIT( LCD_MSB_3 ) != 0 ) bit_set(data, BIT(7));
-
+	if( (PIN(LCD_MSB_PORT) & BIT(LCD_MSB_0)) != 0 ) bit_set(data, BIT(4));
+	if( (PIN(LCD_MSB_PORT) & BIT(LCD_MSB_1)) != 0 ) bit_set(data, BIT(5));
+	if( (PIN(LCD_MSB_PORT) & BIT(LCD_MSB_2)) != 0 ) bit_set(data, BIT(6));
+	if( (PIN(LCD_MSB_PORT) & BIT(LCD_MSB_3)) != 0 ) bit_set(data, BIT(7));
 	return data;
 }
 
 void lcd_set_cgram( uint8_t addr )
 {
+	uint8_t t_addr;
 	bit_clear( LCD_FUNC_PORT, BIT( LCD_RW ) );
-	addr = bit_set(addr, BIT( 6 ) );
-	addr = bit_clear(addr, BIT( 7 ) );
-	lcd_cmd( addr );
+	t_addr = bit_set(addr, BIT( 6 ) );
+	t_addr = bit_clear(addr, BIT( 7 ) );
+	lcd_cmd( t_addr );
 	lcd_enable();
 }
 
 void lcd_set_ddram( uint8_t addr )
 {
+	uint8_t t_addr;
 	bit_clear( LCD_FUNC_PORT, BIT( LCD_RW ) );
-	addr = bit_set(addr, BIT( 7 ) );
-	lcd_cmd( addr );
+	t_addr = bit_set(addr, BIT( 7 ) );
+	lcd_cmd( t_addr );
 	lcd_enable();
 }
